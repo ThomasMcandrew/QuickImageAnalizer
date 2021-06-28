@@ -3,12 +3,18 @@ package main.inner;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 public class TableView extends JPanel {
 
     private static TableView tableView;
     private static int iterator;
     private static DefaultTableModel model;
+    public static void addRowToModel(String[] v){
+        model.addRow(v);
+    }
+
     public static TableView getTableView(){
         if(tableView == null){
             tableView = new TableView();
@@ -19,7 +25,13 @@ public class TableView extends JPanel {
         setPreferredSize(new Dimension(300,500));
         model = new DefaultTableModel();
         JTable table = new JTable(model);
-        add(table);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setPreferredSize(new Dimension(250,400));
+        scrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+            }
+        });        add(scrollPane);
         iterator = 0;
     }
 

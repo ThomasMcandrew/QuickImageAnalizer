@@ -1,21 +1,23 @@
 package main.menu;
 
+import main.settings.Settings;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyMenuBar extends JMenuBar {
 
     public MyMenuBar(){
-        JMenu file = new JMenu("File");
-        JMenuItem openVideo = new JMenuItem("Open new Video");
-        JMenuItem openPreviousSession = new JMenuItem("Open Previous Session");
-        JMenuItem saveCsv = new JMenuItem("Save CSV");
-        JMenuItem saveSession = new JMenuItem("Save Session");
-        file.add(openVideo);
-        file.add(openPreviousSession);
-        file.add(saveCsv);
-        file.add(saveSession);
+        JMenuItem settings = new JMenuItem("Settings");
+        settings.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Settings.openSettings();
+            }
+        });
+        add(settings);
 
-        add(file);
     }
 
 }

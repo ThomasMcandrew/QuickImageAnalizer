@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="QuickImageAnalizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/QuickImageAnalizer_jar</output-path>
+    <root id="root">
+      <element id="archive" name="QuickImageAnalizer.jar">
+        <element id="module-output" name="QuickImageAnalizer" />
+      </element>
+      <element id="library" level="project" name="opencv-452" />
+    </root>
+  </artifact>
+</component>

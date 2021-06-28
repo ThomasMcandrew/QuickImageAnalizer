@@ -26,8 +26,6 @@ public class ImageView extends JPanel {
     }
     private ImageView(){
         setPreferredSize(new Dimension(500,500));
-        Utils.initVideoCapture(new File("C:\\Users\\thoma\\Desktop\\Recording #8.mp4"));
-        nextImage();
     }
     public void setVideoFile(File file){
         Utils.initVideoCapture(file);

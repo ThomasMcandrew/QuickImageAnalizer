@@ -14,6 +14,9 @@ import java.io.IOException;
 public class Utils {
 
     private static VideoCapture capture;
+    public static boolean captureReady(){
+        return capture != null;
+    }
     public static void initVideoCapture(File file){
         capture = new VideoCapture(file.getAbsolutePath());
     }
@@ -27,6 +30,7 @@ public class Utils {
         try {
             image = ImageIO.read(new ByteArrayInputStream(mob.toArray()));
         } catch (IOException e) {
+            System.exit(0);
             e.printStackTrace();
         }
         return image;
